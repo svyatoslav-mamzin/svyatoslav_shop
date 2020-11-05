@@ -9,9 +9,27 @@
     <body>
         <div id="header">
             <a href="/" class="logo">Svyatoslav shop</a>
+            {% if username %}
+            <a href="accounts/logout" class="logo">Выйти</a>
+            {% else %}
+            <a href="accounts/register" class="logo">Регистрация</a>
+            <a href="accounts/login" class="logo">Вход</a>
+            {% endif %}
         </div>
         <div id="subheader">
-            <div class="cart">Your cart is empty.</div>
+            <div class="cart">
+                {% with total_items=cart|length %}
+          {% if cart|length > 0 %}
+            В корзине {{username}}:
+            <a href="{% url "cart:cart_detail" %}">
+              {{ total_items }} item{{ total_items|pluralize }},
+              ${{ cart.get_total_price }}
+            </a>
+          {% else %}
+            {{username}} корзина пуста.
+          {% endif %}
+        {% endwith %}
+            </div>
         </div>
         <div id="content">
             {% block content %}{% endblock %}
