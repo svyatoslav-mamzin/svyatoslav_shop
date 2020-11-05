@@ -1,4 +1,4 @@
-from svyatoslav_shop.shop.models import Product
+from shop.models import Product
 
 
 def get_available_products():

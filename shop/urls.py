@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from svyatoslav_shop.shop import views
+from shop import views
 
 app_name = 'shop'
 

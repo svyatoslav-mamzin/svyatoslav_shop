@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
-from svyatoslav_shop.shop.models import Product
-from svyatoslav_shop.shop.services.db_model_service import get_available_products
+from shop.models import Product
+from shop.services.db_model_service import get_available_products
 
 
 def product_list(request):
