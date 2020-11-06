@@ -27,9 +27,10 @@ def cart_remove(request, product_id):
 
 @login_required
 def cart_detail(request):
+    username = request.user.username
     cart = Cart(request)
     for item in cart:
             item['update_quantity_form'] = CartAddProductForm(
                               initial={'quantity': item['quantity'],
                               'update': True})
-    return render(request, 'cart/detail.html', {'cart': cart})
+    return render(request, 'cart/detail.html', {'cart': cart, 'username': username})

@@ -7,7 +7,6 @@ from .forms import LoginForm, UserRegistrationForm
 
 from .models import Profile
 
-
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

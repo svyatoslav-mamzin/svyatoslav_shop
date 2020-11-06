@@ -10,7 +10,7 @@
         <div id="header">
             <a href="/" class="logo">Svyatoslav shop</a>
             {% if username %}
-            <a href="accounts/logout" class="logo">Выйти</a>
+            <a href="{% url 'logout'%}?next={{request.path}}" class="logo">Выйти</a>
             {% else %}
             <a href="accounts/register" class="logo">Регистрация</a>
             <a href="accounts/login" class="logo">Вход</a>
