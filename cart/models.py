@@ -5,9 +5,9 @@ from decimal import Decimal
 
 
 
-class Cart(models.Model):
+class Cart_bd(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     paid = models.BooleanField(default=False)
 
 
@@ -20,7 +20,7 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
-    order = models.ForeignKey(Cart,
+    cart = models.ForeignKey(Cart_bd,
                               related_name='items',
                               on_delete=models.CASCADE)
     product = models.ForeignKey(Product,

@@ -13,34 +13,27 @@
         <th>Продукт</th>
         <th>Количество</th>
         <th>Удалить</th>
-
         <th>Цена</th>
+        <th>Сумма</th>
       </tr>
     </thead>
     <tbody>
-      {% for item in cart %}
+      {% for item in cart.get_items_cart %}
         {% with product=item.product %}
           <tr>
             <td>
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                <a href="{{ product.get_absolute_url }}">{{ item.product.name }}</a>
             </td>
-            <td>
-              <form action="{% url "cart:cart_add" product.id %}" method="post">
-                {{ item.update_quantity_form.quantity }}
-                {{ item.update_quantity_form.update }}
-                <input type="submit" value="Update">
-                {% csrf_token %}
-              </form>
-            </td>
-            <td><a href="{% url "cart:cart_remove" product.id %}">удалить</a></td>
-            <td class="num">${{ item.price }}</td>
-            <td class="num">${{ item.total_price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td><a href="{% url "cart:cart_remove" item.product.id %}">удалить</a></td>
+            <td>{{ item.price }} руб</td>
+            <td>{{ item.get_cost }} руб</td>
           </tr>
         {% endwith %}
       {% endfor %}
       <tr class="total">
         <td>Total</td>
-        <td colspan="4"></td>
+        <td colspan="3"></td>
         <td class="num">${{ cart.get_total_price }}</td>
       </tr>
     </tbody>
