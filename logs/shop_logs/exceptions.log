@@ -1,0 +1,189 @@
+2020-11-07T10:59:37.664058+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (9493), thread 'Thread-3' (140103645132544):
+Traceback (most recent call last):
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/shortcuts.py", line 93, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           │        │    │       └ {'id': 4, 'slug': 'kokos', 'available': True}
+           │        │    └ ()
+           │        └ <function QuerySet.get at 0x7f6c7180b790>
+           └ <QuerySet [<Product: kokos>, <Product: nasos>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+          │    │     └ <class 'shop.models.Product.DoesNotExist'>
+          │    └ <class 'shop.models.Product'>
+          └ <QuerySet [<Product: kokos>, <Product: nasos>]>
+
+shop.models.Product.DoesNotExist: Product matching query does not exist.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f6c725284c0>
+    └ <Thread(Thread-3, started daemon 140103645132544)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f6c725281f0>
+    └ <Thread(Thread-3, started daemon 140103645132544)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-3, started daemon 140103645132544)>
+    │    │        │    └ (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-3, started daemon 140103645132544)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f6c70405430>>
+    └ <Thread(Thread-3, started daemon 140103645132544)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 46706)
+    │    │              └ <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f6c71704700>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f6c70405430>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f6c70405430>
+    │    │                   │        └ ('127.0.0.1', 46706)
+    │    │                   └ <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f6c70405430>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f6c71d3edc0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f6c703530d0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f6c71d3ee50>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f6c703530d0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f6c71d3e280>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f6c70405430>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f6c703530d0>
+    │       └ <function BaseHandler.run at 0x7f6c71d34ee0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f6c703534f0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f6c71d3c280>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f6c703534f0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1139,unix/HP-630:/tmp/.ICE-unix/1139', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f6c703534f0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f6c70787070>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f6c703534f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f6c703534f0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1139,unix/HP-630:/tmp/.ICE-unix/1139', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f6c71699d60>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f6c70787070>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │    └ <function BaseHandler.get_response at 0x7f6c7117bc10>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f6c71699d60>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/4/kokos/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6c715b71f0>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f6c71699d60>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f6c715a98e0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6c715b7280>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f6c715a98e0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f6c715a99a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6c715b7310>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f6c715a99a0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f6c715a9a60>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6c715b73a0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f6c715a9a60>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f6c715a9b20>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6c715b7430>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f6c715a9b20>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f6c715a9c70>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6c715b75e0>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f6c715a9c70>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f6c715a96a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6c715b7670>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f6c715a96a0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f6c715a9d00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/4/kokos/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f6c715b7700>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f6c715a9d00>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/4/kokos/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f6c71699d60>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {'id': 4, 'slug': 'kokos'}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/4/kokos/'>
+               └ <function product_detail at 0x7f6c705c4c10>
+
+  File "/home/svyatoslav/svyatoslav_shop/shop/views.py", line 26, in product_detail
+    product = get_object_or_404(Product, id=id, slug=slug, available=True)
+              │                 │           │        └ 'kokos'
+              │                 │           └ 4
+              │                 └ <class 'shop.models.Product'>
+              └ <function get_object_or_404 at 0x7f6c71cf8280>
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/shortcuts.py", line 95, in get_object_or_404
+    raise Http404('No %s matches the given query.' % queryset.model._meta.object_name)
+          │                                          │        │     │     └ 'Product'
+          │                                          │        │     └ <Options for Product>
+          │                                          │        └ <class 'shop.models.Product'>
+          │                                          └ <QuerySet [<Product: kokos>, <Product: nasos>]>
+          └ <class 'django.http.response.Http404'>
+
+django.http.response.Http404: No Product matches the given query.

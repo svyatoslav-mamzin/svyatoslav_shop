@@ -6,8 +6,13 @@ from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 from .models import CartItem, Cart_bd
+from loguru import logger
+
+logger.add("logs/cart_logs/exceptions.log", format="{time} {level} {message}", level="ERROR",
+           rotation="1 MB", compression='zip')
 
 
+@logger.catch
 @login_required
 @require_POST
 def cart_add(request, product_id):
@@ -21,6 +26,7 @@ def cart_add(request, product_id):
     return redirect('cart:cart_detail')
 
 
+@logger.catch
 @login_required
 def cart_remove(request, product_id):
     cart = Cart(request)
@@ -29,6 +35,7 @@ def cart_remove(request, product_id):
     return redirect('cart:cart_detail')
 
 
+@logger.catch
 @login_required
 def cart_detail(request):
     user = request.user

@@ -5,9 +5,13 @@ from cart.cart import Cart
 from cart.forms import CartAddProductForm
 from shop.models import Product
 from shop.services.db_model_service import get_available_products
+from loguru import logger
+
+logger.add("logs/shop_logs/exceptions.log", format="{time} {level} {message}", level="ERROR",
+           rotation="1 MB", compression='zip')
 
 
-#@login_required
+@logger.catch
 def product_list(request):
     products = get_available_products()
     username = request.user.username
@@ -15,7 +19,7 @@ def product_list(request):
     data = {'products': products, 'username': username, 'cart': cart, 'total_items': cart.__len__()}
     return render(request, 'shop/product/list.html', context=data)
 
-
+@logger.catch
 #@login_required
 def product_detail(request, id, slug):
     username = request.user.username

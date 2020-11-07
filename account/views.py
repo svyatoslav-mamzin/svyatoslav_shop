@@ -1,12 +1,15 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from .forms import LoginForm, UserRegistrationForm
-
 from .models import Profile
 
+from loguru import logger
+logger.add("logs/account_logs/exceptions.log", format="{time} {level} {message}", level="ERROR",
+           rotation="1 MB", compression='zip')
+
+
+@logger.catch
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -28,7 +31,7 @@ def user_login(request):
     return render(request, 'registration/login.html', {'form': form})
 
 
-
+@logger.catch
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
