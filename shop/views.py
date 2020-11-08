@@ -7,8 +7,9 @@ from shop.models import Product
 from shop.services.db_model_service import get_available_products
 from loguru import logger
 
-logger.add("logs/shop_logs/exceptions.log", format="{time} {level} {message}", level="ERROR",
+logger.add("logs/shop_logs/{time}_log.log", format="{time} {level} {message}", level="ERROR",
            rotation="1 MB", compression='zip')
+
 
 
 @logger.catch
@@ -20,8 +21,8 @@ def product_list(request):
     return render(request, 'shop/product/list.html', context=data)
 
 @logger.catch
-#@login_required
 def product_detail(request, id, slug):
+    logger.info("test")
     username = request.user.username
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     cart_product_form = CartAddProductForm()

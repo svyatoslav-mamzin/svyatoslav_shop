@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
+from loguru import logger
 
 from cart.models import CartItem, Cart_bd
 from shop.models import Product
@@ -9,9 +10,6 @@ from shop.models import Product
 class Cart(object):
 
     def __init__(self, request):
-        """
-        Initialize the cart.
-        """
 
         if isinstance(request.user, AnonymousUser):
             self.cart = []
@@ -32,7 +30,7 @@ class Cart(object):
             return self.cart_item.count()
         return 0
 
-    def _update_cart(self, product, quantity):
+    def _update_quantity_cart(self, product, quantity):
         cart_item = self.cart_item.get(product=product)
         cart_item.quantity += quantity
         cart_item.save(update_fields=["quantity"])
@@ -40,14 +38,13 @@ class Cart(object):
     def add(self, product, quantity=1):
         # Add a product to the cart or update its quantity.
         if self.cart_item.filter(product=product):
-            self._update_cart(product, quantity)
+            self._update_quantity_cart(product, quantity)
         else:
             cart_item = CartItem(cart=self.cart, product=product, price=product.retail_price, quantity=quantity)
             cart_item.save()
 
     def remove(self, product):
         # Remove a product from the cart.
-
         self.cart_item.filter(product=product).first().delete()
 
     def get_total_price(self):
