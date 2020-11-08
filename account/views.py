@@ -1,11 +1,13 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+
+from cart.models import Cart_bd
 from .forms import LoginForm, UserRegistrationForm
 from .models import Profile
 
 from loguru import logger
-logger.add("logs/account_logs/{time}_log", format="{time} {level} {message}", level="ERROR",
+logger.add("logs/account_logs/log", format="{time} {level} {message}", level="ERROR",
            rotation="1 MB", compression='zip')
 
 
@@ -45,6 +47,7 @@ def register(request):
             new_user.save()
             # Create the user profile
             Profile.objects.create(user=new_user)
+            Cart_bd.objects.create(user=new_user)
             logger.info("Зарегистрирован новый пользователь!")
             return render(request,
                           'registration/register_done.html',

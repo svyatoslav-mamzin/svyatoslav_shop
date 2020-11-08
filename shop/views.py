@@ -7,8 +7,8 @@ from shop.models import Product
 from shop.services.db_model_service import get_available_products
 from loguru import logger
 
-logger.add("logs/shop_logs/{time}_log.log", format="{time} {level} {message}", level="ERROR",
-           rotation="1 MB", compression='zip')
+logger.add("logs/shop_logs/log.log", format="{time} {level} {message}", level="ERROR",
+           rotation="10 MB", compression='zip')
 
 
 
@@ -17,7 +17,9 @@ def product_list(request):
     products = get_available_products()
     username = request.user.username
     cart = Cart(request)
-    data = {'products': products, 'username': username, 'cart': cart, 'total_items': cart.__len__()}
+    data = {'username': username, 'cart': cart, 'total_items': cart.__len__()}
+    if products:
+        data['products'] = products
     return render(request, 'shop/product/list.html', context=data)
 
 @logger.catch

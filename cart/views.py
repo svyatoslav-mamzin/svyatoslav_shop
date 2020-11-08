@@ -8,7 +8,7 @@ from .forms import CartAddProductForm
 from .models import CartItem, Cart_bd
 from loguru import logger
 
-logger.add("logs/cart_logs/{time}_log.log", format="{time} {level} {message}", level="ERROR",
+logger.add("logs/cart_logs/log.log", format="{time} {level} {message}", level="ERROR",
            rotation="10 MB", compression='zip')
 
 

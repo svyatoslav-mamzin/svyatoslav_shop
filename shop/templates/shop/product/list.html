@@ -6,16 +6,19 @@
 {% endblock %}
 {% block content %}
 
-{% for product in products %}
-<div class="item">
-<a href="{{ product.get_absolute_url }}">
-<img src="{% if product.image %}{{ product.image.url }}{%
-else %}{% static "img/no_image.png" %}{% endif %}">
-</a>
-<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-
-{{ product.retail_price }} руб
-</div>
-{% endfor %}
+{% if products %}
+    {% for product in products %}
+    <div class="item">
+        <a href="{{ product.get_absolute_url }}">
+        <img src="{% if product.image %}{{ product.image.url }}{%
+        else %}{% static "img/no_image.png" %}{% endif %}">
+        </a>
+        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        {{ product.retail_price }} руб
+    </div>
+    {% endfor %}
+{% else %}
+    <h3> Товаров пока нет!!!</h3>
+{% endif %}
 </div>
 {% endblock %}
