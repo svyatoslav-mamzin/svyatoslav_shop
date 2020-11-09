@@ -2,23 +2,30 @@
 {% extends "shop/base.html" %}
 {% load static %}
 {% block title %}
-{% if category %}{{ category.name }}{% else %}Products{% endif %}
 {% endblock %}
 {% block content %}
-
+<style>
+    article {
+    -webkit-column-count:4;
+    -moz-column-count:4;
+    column-count:4;
+    column-width: 150px;
+    column-gap: 20px;
+    column-rule: 2px dotted #ccc;
+}
+</style>
+ <article>
 {% if products %}
+
     {% for product in products %}
     <div class="item">
-        <a href="{{ product.get_absolute_url }}">
-        <img src="{% if product.image %}{{ product.image.url }}{%
-        else %}{% static "img/no_image.png" %}{% endif %}">
-        </a>
         <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
         {{ product.retail_price }} руб
     </div>
     {% endfor %}
+
 {% else %}
     <h3> Товаров пока нет!!!</h3>
 {% endif %}
-</div>
+</article>
 {% endblock %}

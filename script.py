@@ -1,5 +1,11 @@
 import requests
 import csv
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'svyatoslav_shop.settings')
+django.setup()
+from shop.models import Product
 
 
 def download_file(url_file, path):
@@ -12,25 +18,31 @@ def download_file(url_file, path):
 
 
 def purchase_price(price) -> int:
-    return price * 0.9
+    return int(price * 0.9)
 
 
 def retail_price(price) -> int:
     if price < 1000:
-        return price * 1.2
+        return int(price * 1.2)
     else:
-        return price * 1.1
+        return int(price * 1.1)
 
 
-def csv_reader(file_obj):
+def write_csv_to_db(file_obj):
     reader = csv.reader(file_obj, delimiter=";")
+    prefix = "ПТ"
     count = 0
+    product_list = []
     for row in reader:
         if count != 0:
-            print(f' Артикул {row[0]} Наим {row[1]} цена {int(row[2])} '
-                  f'закуп {purchase_price(int(row[2]))} розница {retail_price(int(row[2]))}')
+            product_list.append(Product(article=prefix + row[0], name=row[1],
+                                        purchase_price=purchase_price(int(row[2])),
+                                        retail_price=retail_price(int(row[2]))))
+             #print(f' Артикул {prefix+row[0]} Наим {row[1]} цена {int(row[2])} '
+             #     f'закуп {purchase_price(int(row[2]))} розница {retail_price(int(row[2]))}')
         else:
             count += 1
+    Product.objects.bulk_create(product_list)
 
 
 if __name__ == '__main__':
@@ -42,4 +54,4 @@ if __name__ == '__main__':
     # download_file(url, csv_path)
 
     with open(csv_path, "r") as f_obj:
-        csv_reader(f_obj)
+        write_csv_to_db(f_obj)

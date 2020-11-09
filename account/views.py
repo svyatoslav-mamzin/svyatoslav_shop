@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
@@ -35,6 +36,7 @@ def user_login(request):
 
 @logger.catch
 def register(request):
+    grup_name = "client"
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -45,6 +47,8 @@ def register(request):
                 user_form.cleaned_data['password'])
             # Save the User object
             new_user.save()
+            my_group = Group.objects.get(name=grup_name)
+            my_group.user_set.add(new_user)
             # Create the user profile
             Profile.objects.create(user=new_user)
             Cart_bd.objects.create(user=new_user)

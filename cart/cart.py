@@ -12,7 +12,7 @@ class Cart(object):
     def __init__(self, request):
 
         if isinstance(request.user, AnonymousUser):
-            self.cart = []
+            self.cart = None
             self.cart_item = None
         else:
             cart = Cart_bd.objects.get(user=request.user)

@@ -11,7 +11,6 @@ logger.add("logs/shop_logs/log.log", format="{time} {level} {message}", level="E
            rotation="10 MB", compression='zip')
 
 
-
 @logger.catch
 def product_list(request):
     products = get_available_products()
@@ -22,11 +21,11 @@ def product_list(request):
         data['products'] = products
     return render(request, 'shop/product/list.html', context=data)
 
+
 @logger.catch
-def product_detail(request, id, slug):
-    logger.info("test")
+def product_detail(request, id, article):
     username = request.user.username
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
+    product = get_object_or_404(Product, id=id, article=article, available=True)
     cart_product_form = CartAddProductForm()
     cart = Cart(request)
     data = {'product': product, 'cart_product_form': cart_product_form, 'cart': cart, 'username': username,

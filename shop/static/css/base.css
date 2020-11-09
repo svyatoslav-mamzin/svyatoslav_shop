@@ -328,3 +328,11 @@ form div.field {
     color:#666;
     border-radius:4px;
 }
+article {
+    -webkit-column-count:4;
+    -moz-column-count:4;
+    column-count:4;
+    column-width: 150px;
+    column-gap: 20px;
+    column-rule: 2px dotted #ccc;
+}
