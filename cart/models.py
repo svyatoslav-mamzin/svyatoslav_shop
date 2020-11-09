@@ -4,12 +4,9 @@ from shop.models import Product
 from decimal import Decimal
 
 
-
 class Cart_bd(models.Model):
-
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     paid = models.BooleanField(default=False)
-
 
     def __str__(self):
         return 'Cart {}'.format(self.id)
@@ -21,8 +18,8 @@ class Cart_bd(models.Model):
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart_bd,
-                              related_name='items',
-                              on_delete=models.CASCADE)
+                             related_name='items',
+                             on_delete=models.CASCADE)
     product = models.ForeignKey(Product,
                                 related_name='order_items',
                                 on_delete=models.CASCADE)

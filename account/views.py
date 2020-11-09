@@ -45,6 +45,7 @@ def register(request):
             # Set the chosen password
             new_user.set_password(
                 user_form.cleaned_data['password'])
+            new_user.is_staff = True
             # Save the User object
             new_user.save()
             my_group = Group.objects.get(name=grup_name)
