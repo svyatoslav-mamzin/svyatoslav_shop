@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 
 from cart.models import Cart_bd
-from .forms import LoginForm, UserRegistrationForm
+from .forms import LoginForm, UserRegistrationForm, UserAddressForm
 from .models import Profile
 
 from loguru import logger
@@ -36,10 +36,11 @@ def user_login(request):
 
 @logger.catch
 def register(request):
-    grup_name = "client"
+    group_name = "client"
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
+        user_address_form = UserAddressForm(request.POST)
+        if user_form.is_valid() and user_address_form.is_valid():
             # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
             # Set the chosen password
@@ -48,10 +49,10 @@ def register(request):
             new_user.is_staff = True
             # Save the User object
             new_user.save()
-            my_group = Group.objects.get(name=grup_name)
+            my_group = Group.objects.get(name=group_name)
             my_group.user_set.add(new_user)
             # Create the user profile
-            Profile.objects.create(user=new_user)
+            Profile.objects.create(user=new_user, delivery_address=user_address_form.cleaned_data.get('delivery_address'))
             Cart_bd.objects.create(user=new_user)
             logger.info("Зарегистрирован новый пользователь!")
             return render(request,
@@ -59,7 +60,8 @@ def register(request):
                           {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
+        user_address_form = UserAddressForm()
     return render(request,
                   'registration/register.html',
-                  {'user_form': user_form})
+                  {'user_form': user_form, 'user_address_form': user_address_form})
 
