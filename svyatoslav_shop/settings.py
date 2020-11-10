@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'account',
+    'orders',
+    'wkhtmltopdf'
+
 ]
 
 MIDDLEWARE = [
