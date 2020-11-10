@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'cart',
     'account',
     'orders',
-    'wkhtmltopdf'
 
 ]
 

@@ -3,3 +3,4 @@ loguru~=0.5.3
 wkhtmltopdf~=0.2
 celery~=5.0.2
 requests~=2.24.0
+pdfkit~=0.6.1
