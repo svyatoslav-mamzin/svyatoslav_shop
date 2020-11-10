@@ -1,8 +1,11 @@
 import requests
 import csv
+
+
 from loguru import logger
 import os
 import django
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'svyatoslav_shop.settings')
 django.setup()

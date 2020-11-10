@@ -1,0 +1,2150 @@
+2020-11-10T07:06:06.910216+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (18482), thread 'Thread-1' (140117231052544):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f6f981764c0>
+    └ <Thread(Thread-1, started daemon 140117231052544)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f6f981761f0>
+    └ <Thread(Thread-1, started daemon 140117231052544)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 140117231052544)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 140117231052544)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f6f95e3ac70>>
+    └ <Thread(Thread-1, started daemon 140117231052544)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33600)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f6f97021a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f6f95e3ac70>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f6f95e3ac70>
+    │    │                   │        └ ('127.0.0.1', 33600)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f6f95e3ac70>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f6f969340d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f6f95d1c6d0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f6f96934160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f6f95d1c6d0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f6f96932550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f6f95e3ac70>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f6f95d1c6d0>
+    │       └ <function BaseHandler.run at 0x7f6f969af1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f6f95d8cb80>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f6f969af550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f6f95d8cb80>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f6f95d8cb80>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f6f95f1b0d0>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f6f95d8cb80>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f6f95d8cb80>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f6f96fc3a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f6f95f1b0d0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f6f969e6160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f6f96fc3a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6f96ed1280>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f6f96fc3a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f6f9693f4c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6f96ed1310>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f6f9693f4c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f6f96f42f40>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6f96ed13a0>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f6f96f42f40>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f6f96f42d30>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6f96ed1430>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f6f96f42d30>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f6f96f42be0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6f96ed14c0>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f6f96f42be0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f6f96ed3130>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6f96ed1670>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f6f96ed3130>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f6f96ed31c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f6f96ed1700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f6f96ed31c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f6f96ed32b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f6f96ed1790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f6f96ed32b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f6f96fc3a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f6f95efd5e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 14, in order_create
+    delivery_address = request.user.profile.delivery_address
+                       │       └ <SimpleLazyObject: <User: admin>>
+                       └ <WSGIRequest: GET '/orders/create/'>
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/functional.py", line 257, in inner
+    return func(self._wrapped, *args)
+           │    │    │          └ ('profile',)
+           │    │    └ <User: admin>
+           │    └ <SimpleLazyObject: <User: admin>>
+           └ <built-in function getattr>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/fields/related_descriptors.py", line 412, in __get__
+    raise self.RelatedObjectDoesNotExist(
+          │    └ <class 'django.contrib.auth.models.User.profile.RelatedObjectDoesNotExist'>
+          └ <django.db.models.fields.related_descriptors.ReverseOneToOneDescriptor object at 0x7f6f96a4cb20>
+
+django.contrib.auth.models.User.profile.RelatedObjectDoesNotExist: User has no profile.
+2020-11-10T07:08:43.042509+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (18644), thread 'Thread-1' (140120848115456):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f706faf64c0>
+    └ <Thread(Thread-1, started daemon 140120848115456)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f706faf61f0>
+    └ <Thread(Thread-1, started daemon 140120848115456)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 140120848115456)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 140120848115456)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f706d78ac10>>
+    └ <Thread(Thread-1, started daemon 140120848115456)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33602)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f706e9a1a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f706d78ac10>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f706d78ac10>
+    │    │                   │        └ ('127.0.0.1', 33602)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f706d78ac10>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f706e2b40d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f706d69a940>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f706e2b4160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f706d69a940>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f706e2b2550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f706d78ac10>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f706d69a940>
+    │       └ <function BaseHandler.run at 0x7f706e32f1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f706d719ee0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f706e32f550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f706d719ee0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f706d719ee0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f706d78fdc0>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f706d719ee0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f706d719ee0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f706e943a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f706d78fdc0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f706e366160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f706e943a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f706e851040>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f706e943a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f706d78fd90>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f706d789ca0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f706d78fd90>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f706d78fe80>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f706d789d30>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f706d78fe80>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f706d78ffa0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f706d793040>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f706d78ffa0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f706d791430>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f706d789f70>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f706d791430>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f706d7913a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f706d7890d0>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f706d7913a0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f706e8531c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f706e851700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f706e8531c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f706e8532b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f706e851790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f706e8532b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f706e943a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f706d87d550>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 15, in order_create
+    delivery_address = Profile.objects.get(user=User.objects.get(request.username)).delivery_address
+                       │       │                │    │           └ <WSGIRequest: GET '/orders/create/'>
+                       │       │                │    └ <django.db.models.manager.ManagerDescriptor object at 0x7f706e418670>
+                       │       │                └ <class 'django.contrib.auth.models.User'>
+                       │       └ <django.db.models.manager.ManagerDescriptor object at 0x7f706e3cc820>
+                       └ <class 'account.models.Profile'>
+
+AttributeError: 'WSGIRequest' object has no attribute 'username'
+2020-11-10T07:16:18.031889+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (19054), thread 'Thread-1' (139769200703232):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f1e8fddb4c0>
+    └ <Thread(Thread-1, started daemon 139769200703232)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f1e8fddb1f0>
+    └ <Thread(Thread-1, started daemon 139769200703232)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 139769200703232)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 139769200703232)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f1e8daaafd0>>
+    └ <Thread(Thread-1, started daemon 139769200703232)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33630)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f1e8ec86a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f1e8daaafd0>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f1e8daaafd0>
+    │    │                   │        └ ('127.0.0.1', 33630)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f1e8daaafd0>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f1e8e5990d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f1e8d9c7340>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f1e8e599160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f1e8d9c7340>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f1e8e597550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f1e8daaafd0>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f1e8d9c7340>
+    │       └ <function BaseHandler.run at 0x7f1e8e6141f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f1e8d9c77f0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f1e8e614550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f1e8d9c77f0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f1e8d9c77f0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f1e8e997a60>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f1e8d9c77f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f1e8d9c77f0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f1e8ec28a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f1e8e997a60>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f1e8e64b160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f1e8ec28a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f1e8eb36280>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f1e8ec28a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f1e8dac0490>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f1e8eb36310>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f1e8dac0490>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f1e8eba7f40>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f1e8eb363a0>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f1e8eba7f40>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f1e8eba7d30>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f1e8eb36430>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f1e8eba7d30>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f1e8eba7be0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f1e8eb364c0>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f1e8eba7be0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f1e8eb38130>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f1e8eb36670>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f1e8eb38130>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f1e8eb381c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f1e8eb36700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f1e8eb381c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f1e8eb382b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f1e8eb36790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f1e8eb382b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f1e8ec28a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f1e8db635e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 19, in order_create
+    delivery_address = Profile.objects.get(user=User.objects.get(request.user.username)).delivery_address
+                       │       │                │    │           │       └ <SimpleLazyObject: <User: admin>>
+                       │       │                │    │           └ <WSGIRequest: GET '/orders/create/'>
+                       │       │                │    └ <django.db.models.manager.ManagerDescriptor object at 0x7f1e8e6fd670>
+                       │       │                └ <class 'django.contrib.auth.models.User'>
+                       │       └ <django.db.models.manager.ManagerDescriptor object at 0x7f1e8e6b1820>
+                       └ <class 'account.models.Profile'>
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+                   │    │               │      │       └ {}
+                   │    │               │      └ ('admin',)
+                   │    │               └ 'get'
+                   │    └ <function BaseManager.get_queryset at 0x7f1e8ed68a60>
+                   └ <django.contrib.auth.models.UserManager object at 0x7f1e8e69d0a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 399, in get
+    clone = self.filter(*args, **kwargs)
+            │    │       │       └ {}
+            │    │       └ ('admin',)
+            │    └ <function QuerySet.filter at 0x7f1e8ed63f70>
+            └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+           │    │                          │       └ {}
+           │    │                          └ ('admin',)
+           │    └ <function QuerySet._filter_or_exclude at 0x7f1e8ed650d0>
+           └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+    │     │     │     │  │       └ {}
+    │     │     │     │  └ ('admin',)
+    │     │     │     └ <class 'django.db.models.query_utils.Q'>
+    │     │     └ <function Query.add_q at 0x7f1e8ed84ee0>
+    │     └ <django.db.models.sql.query.Query object at 0x7f1e8d999640>
+    └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                │    │      │         │    └ set()
+                │    │      │         └ <django.db.models.sql.query.Query object at 0x7f1e8d999640>
+                │    │      └ <Q: (AND: admin)>
+                │    └ <function Query._add_q at 0x7f1e8ed85040>
+                └ <django.db.models.sql.query.Query object at 0x7f1e8d999640>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1315, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 │    └ <function Query.build_filter at 0x7f1e8ed84dc0>
+                                 └ <django.db.models.sql.query.Query object at 0x7f1e8d999640>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    arg, value = filter_expr
+                 └ 'admin'
+
+ValueError: too many values to unpack (expected 2)
+2020-11-10T07:19:27.582304+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (19219), thread 'Thread-1' (140338995918592):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7fa33eb2d4c0>
+    └ <Thread(Thread-1, started daemon 140338995918592)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7fa33eb2d1f0>
+    └ <Thread(Thread-1, started daemon 140338995918592)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 140338995918592)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 140338995918592)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7fa33c807e50>>
+    └ <Thread(Thread-1, started daemon 140338995918592)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33648)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7fa33d9d8a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fa33c807e50>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7fa33c807e50>
+    │    │                   │        └ ('127.0.0.1', 33648)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fa33c807e50>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7fa33d2eb0d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fa33c7301f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 171, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7fa33d2eb160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fa33c7301f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7fa33d2e9550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7fa33c807e50>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fa33c7301f0>
+    │       └ <function BaseHandler.run at 0x7fa33d3661f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fa33c7d8b50>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7fa33d366550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7fa33c7d8b50>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7fa33c7d8b50>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fa33c884be0>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fa33c7d8b50>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7fa33c7d8b50>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fa33d97aa00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fa33c884be0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7fa33d39d160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fa33d97aa00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7fa33d883e50>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fa33d97aa00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7fa33c855760>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fa33d8880d0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7fa33c855760>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fa33c8556a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fa33d888160>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fa33c8556a0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7fa33d8df1c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fa33d8881f0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7fa33d8df1c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fa33d9dd4f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fa33d888280>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fa33d9dd4f0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fa33d8f9c40>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fa33d888670>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fa33d8f9c40>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fa33d88a1c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fa33d888700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fa33d88a1c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fa33d88a2b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7fa33d888790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fa33d88a2b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7fa33d97aa00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7fa33c8b05e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 19, in order_create
+    delivery_address = Profile.objects.get(user=User.objects.get(request.user.username)).delivery_address
+                       │       │                │    │           │       └ <SimpleLazyObject: <User: admin>>
+                       │       │                │    │           └ <WSGIRequest: GET '/orders/create/'>
+                       │       │                │    └ <django.db.models.manager.ManagerDescriptor object at 0x7fa33d44f670>
+                       │       │                └ <class 'django.contrib.auth.models.User'>
+                       │       └ <django.db.models.manager.ManagerDescriptor object at 0x7fa33d403820>
+                       └ <class 'account.models.Profile'>
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+                   │    │               │      │       └ {}
+                   │    │               │      └ ('admin',)
+                   │    │               └ 'get'
+                   │    └ <function BaseManager.get_queryset at 0x7fa33dabaa60>
+                   └ <django.contrib.auth.models.UserManager object at 0x7fa33d3ef0a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 399, in get
+    clone = self.filter(*args, **kwargs)
+            │    │       │       └ {}
+            │    │       └ ('admin',)
+            │    └ <function QuerySet.filter at 0x7fa33dab5f70>
+            └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+           │    │                          │       └ {}
+           │    │                          └ ('admin',)
+           │    └ <function QuerySet._filter_or_exclude at 0x7fa33dab70d0>
+           └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+    │     │     │     │  │       └ {}
+    │     │     │     │  └ ('admin',)
+    │     │     │     └ <class 'django.db.models.query_utils.Q'>
+    │     │     └ <function Query.add_q at 0x7fa33dad6ee0>
+    │     └ <django.db.models.sql.query.Query object at 0x7fa33c609b20>
+    └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                │    │      │         │    └ set()
+                │    │      │         └ <django.db.models.sql.query.Query object at 0x7fa33c609b20>
+                │    │      └ <Q: (AND: admin)>
+                │    └ <function Query._add_q at 0x7fa33dad7040>
+                └ <django.db.models.sql.query.Query object at 0x7fa33c609b20>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1315, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 │    └ <function Query.build_filter at 0x7fa33dad6dc0>
+                                 └ <django.db.models.sql.query.Query object at 0x7fa33c609b20>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    arg, value = filter_expr
+                 └ 'admin'
+
+ValueError: too many values to unpack (expected 2)
+2020-11-10T07:23:54.876534+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (19532), thread 'Thread-1' (139638575441664):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f0025fe64c0>
+    └ <Thread(Thread-1, started daemon 139638575441664)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f0025fe61f0>
+    └ <Thread(Thread-1, started daemon 139638575441664)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 139638575441664)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 139638575441664)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f0023d57580>>
+    └ <Thread(Thread-1, started daemon 139638575441664)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33662)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f0024e91a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f0023d57580>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f0023d57580>
+    │    │                   │        └ ('127.0.0.1', 33662)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f0023d57580>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f00247a40d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f0023c2f2b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f00247a4160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f0023c2f2b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f00247a2550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f0023d57580>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f0023c2f2b0>
+    │       └ <function BaseHandler.run at 0x7f002481f1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f0023c04ac0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f002481f550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f0023c04ac0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f0023c04ac0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f0023d57910>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f0023c04ac0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f0023c04ac0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f0024e33a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f0023d57910>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f0024856160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f0024e33a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0023c71c10>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f0024e33a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f0023cdf790>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0024d410d0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f0023cdf790>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f0024dc72e0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0024d41160>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f0024dc72e0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f0024db2c70>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0024d411f0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f0024db2c70>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f0024db2d60>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0024d41280>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f0024db2d60>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f0024db2d90>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0024d413a0>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f0024db2d90>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f0024d441c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0024d41700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f0024d441c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f0024d442b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f0024d41790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f0024d442b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f0024e33a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f0023d6d5e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 19, in order_create
+    profile = Profile.objects.get(user=User.objects.get(request.user.username))
+              │       │                │    │           │       └ <SimpleLazyObject: <User: admin>>
+              │       │                │    │           └ <WSGIRequest: GET '/orders/create/'>
+              │       │                │    └ <django.db.models.manager.ManagerDescriptor object at 0x7f0024908670>
+              │       │                └ <class 'django.contrib.auth.models.User'>
+              │       └ <django.db.models.manager.ManagerDescriptor object at 0x7f00248bc820>
+              └ <class 'account.models.Profile'>
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+                   │    │               │      │       └ {}
+                   │    │               │      └ ('admin',)
+                   │    │               └ 'get'
+                   │    └ <function BaseManager.get_queryset at 0x7f0024f73a60>
+                   └ <django.contrib.auth.models.UserManager object at 0x7f00248a80a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 399, in get
+    clone = self.filter(*args, **kwargs)
+            │    │       │       └ {}
+            │    │       └ ('admin',)
+            │    └ <function QuerySet.filter at 0x7f0024f6ef70>
+            └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+           │    │                          │       └ {}
+           │    │                          └ ('admin',)
+           │    └ <function QuerySet._filter_or_exclude at 0x7f0024f700d0>
+           └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+    │     │     │     │  │       └ {}
+    │     │     │     │  └ ('admin',)
+    │     │     │     └ <class 'django.db.models.query_utils.Q'>
+    │     │     └ <function Query.add_q at 0x7f0024f8fee0>
+    │     └ <django.db.models.sql.query.Query object at 0x7f0023b8d910>
+    └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                │    │      │         │    └ set()
+                │    │      │         └ <django.db.models.sql.query.Query object at 0x7f0023b8d910>
+                │    │      └ <Q: (AND: admin)>
+                │    └ <function Query._add_q at 0x7f0024f90040>
+                └ <django.db.models.sql.query.Query object at 0x7f0023b8d910>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1315, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 │    └ <function Query.build_filter at 0x7f0024f8fdc0>
+                                 └ <django.db.models.sql.query.Query object at 0x7f0023b8d910>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    arg, value = filter_expr
+                 └ 'admin'
+
+ValueError: too many values to unpack (expected 2)
+2020-11-10T07:24:19.334553+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (19551), thread 'Thread-1' (139722449082112):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f13ad3894c0>
+    └ <Thread(Thread-1, started daemon 139722449082112)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f13ad3891f0>
+    └ <Thread(Thread-1, started daemon 139722449082112)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 139722449082112)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 139722449082112)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f13ab0cce80>>
+    └ <Thread(Thread-1, started daemon 139722449082112)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33664)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f13ac234a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f13ab0cce80>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f13ab0cce80>
+    │    │                   │        └ ('127.0.0.1', 33664)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f13ab0cce80>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f13abb470d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f13aafb5670>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f13abb47160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f13aafb5670>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f13abb45550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f13ab0cce80>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f13aafb5670>
+    │       └ <function BaseHandler.run at 0x7f13abbc21f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f13aafa7d30>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f13abbc2550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f13aafa7d30>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f13aafa7d30>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f13ab0ccf40>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f13aafa7d30>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f13aafa7d30>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f13ac1d6a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f13ab0ccf40>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f13abbf9160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f13ac1d6a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f13ac0e4280>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f13ac1d6a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f13ab07e700>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f13ac0e4310>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f13ab07e700>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f13ac155f40>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f13ac0e43a0>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f13ac155f40>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f13ac155d30>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f13ac0e4430>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f13ac155d30>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f13ac155be0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f13ac0e44c0>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f13ac155be0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f13ac0e6130>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f13ac0e4670>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f13ac0e6130>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f13ac0e61c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f13ac0e4700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f13ac0e61c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f13ac0e62b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f13ac0e4790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f13ac0e62b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f13ac1d6a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f13ab10d5e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 19, in order_create
+    profile = Profile.objects.get(user=User.objects.get("admin"))
+              │       │                │    └ <django.db.models.manager.ManagerDescriptor object at 0x7f13abcab670>
+              │       │                └ <class 'django.contrib.auth.models.User'>
+              │       └ <django.db.models.manager.ManagerDescriptor object at 0x7f13abc5f820>
+              └ <class 'account.models.Profile'>
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+                   │    │               │      │       └ {}
+                   │    │               │      └ ('admin',)
+                   │    │               └ 'get'
+                   │    └ <function BaseManager.get_queryset at 0x7f13ac316a60>
+                   └ <django.contrib.auth.models.UserManager object at 0x7f13abc4b0a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 399, in get
+    clone = self.filter(*args, **kwargs)
+            │    │       │       └ {}
+            │    │       └ ('admin',)
+            │    └ <function QuerySet.filter at 0x7f13ac311f70>
+            └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+           │    │                          │       └ {}
+           │    │                          └ ('admin',)
+           │    └ <function QuerySet._filter_or_exclude at 0x7f13ac3130d0>
+           └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+    │     │     │     │  │       └ {}
+    │     │     │     │  └ ('admin',)
+    │     │     │     └ <class 'django.db.models.query_utils.Q'>
+    │     │     └ <function Query.add_q at 0x7f13ac332ee0>
+    │     └ <django.db.models.sql.query.Query object at 0x7f13aaf59df0>
+    └ <QuerySet [<User: admin>, <User: wasyan>, <User: vova>, <User: svyatoslav>, <User: tolya>, <User: test>]>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                │    │      │         │    └ set()
+                │    │      │         └ <django.db.models.sql.query.Query object at 0x7f13aaf59df0>
+                │    │      └ <Q: (AND: admin)>
+                │    └ <function Query._add_q at 0x7f13ac333040>
+                └ <django.db.models.sql.query.Query object at 0x7f13aaf59df0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1315, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 │    └ <function Query.build_filter at 0x7f13ac332dc0>
+                                 └ <django.db.models.sql.query.Query object at 0x7f13aaf59df0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    arg, value = filter_expr
+                 └ 'admin'
+
+ValueError: too many values to unpack (expected 2)
+2020-11-10T07:28:37.909263+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (19901), thread 'Thread-1' (139904801568512):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f3e267164c0>
+    └ <Thread(Thread-1, started daemon 139904801568512)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f3e267161f0>
+    └ <Thread(Thread-1, started daemon 139904801568512)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 139904801568512)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 139904801568512)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f3e254732b0>>
+    └ <Thread(Thread-1, started daemon 139904801568512)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33714)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f3e255c1a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f3e254732b0>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f3e254732b0>
+    │    │                   │        └ ('127.0.0.1', 33714)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f3e254732b0>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f3e24ed40d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f3e242b6f70>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f3e24ed4160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f3e242b6f70>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f3e24ed2550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f3e254732b0>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f3e242b6f70>
+    │       └ <function BaseHandler.run at 0x7f3e24f4f1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f3e242b6e80>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f3e24f4f550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f3e242b6e80>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f3e242b6e80>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f3e243d6fd0>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f3e242b6e80>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f3e242b6e80>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f3e25563a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f3e243d6fd0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f3e24f86160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f3e25563a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f3e2439baf0>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f3e25563a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f3e243dcd60>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f3e2439bca0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f3e243dcd60>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f3e243fb5b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f3e2439bd30>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f3e243fb5b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f3e243fb6a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f3e2439bdc0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f3e243fb6a0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f3e243fb790>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f3e2439be50>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f3e243fb790>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f3e243fb820>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f3e2439bee0>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f3e243fb820>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f3e25473130>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f3e25471700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f3e25473130>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f3e254731f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f3e25471790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f3e254731f0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f3e25563a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f3e2449d5e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 19, in order_create
+    profile = Profile.objects.get(user=User.objects.get(username="admin"))
+              │       │                │    └ <django.db.models.manager.ManagerDescriptor object at 0x7f3e25038670>
+              │       │                └ <class 'django.contrib.auth.models.User'>
+              │       └ <django.db.models.manager.ManagerDescriptor object at 0x7f3e24fec820>
+              └ <class 'account.models.Profile'>
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+                   │    │               │      │       └ {'user': <User: admin>}
+                   │    │               │      └ ()
+                   │    │               └ 'get'
+                   │    └ <function BaseManager.get_queryset at 0x7f3e256a3a60>
+                   └ <django.db.models.manager.Manager object at 0x7f3e24411580>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+          │    │     └ <class 'account.models.Profile.DoesNotExist'>
+          │    └ <class 'account.models.Profile'>
+          └ <QuerySet [<Profile: Profile for user wasyan>, <Profile: Profile for user vova>, <Profile: Profile for user svyatoslav>, <Pro...
+
+account.models.Profile.DoesNotExist: Profile matching query does not exist.
+2020-11-10T07:42:47.079246+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (20768), thread 'Thread-2' (140514640348928):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7fcc201c14c0>
+    └ <Thread(Thread-2, started daemon 140514640348928)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7fcc201c11f0>
+    └ <Thread(Thread-2, started daemon 140514640348928)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-2, started daemon 140514640348928)>
+    │    │        │    └ (<socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-2, started daemon 140514640348928)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7fcc1ded3640>>
+    └ <Thread(Thread-2, started daemon 140514640348928)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33796)
+    │    │              └ <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7fcc1f06ca60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fcc1ded3640>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7fcc1ded3640>
+    │    │                   │        └ ('127.0.0.1', 33796)
+    │    │                   └ <socket.socket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fcc1ded3640>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7fcc1e97f0d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fcc1dd16220>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 171, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7fcc1e97f160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fcc1dd16220>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7fcc1e97d550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7fcc1ded3640>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fcc1dd16220>
+    │       └ <function BaseHandler.run at 0x7fcc1e9fa1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fcc1c2b2df0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7fcc1e9fa550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7fcc1c2b2df0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7fcc1c2b2df0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fcc1ded3760>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fcc1c2b2df0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7fcc1c2b2df0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fcc1f00ea00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fcc1ded3760>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7fcc1ea31160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fcc1f00ea00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcc1ef17f70>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fcc1f00ea00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7fcc1de3f7c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcc1ef1c0d0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7fcc1de3f7c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fcc1ef731c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcc1ef1c160>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fcc1ef731c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7fcc1f0714f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcc1ef1c1f0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7fcc1f0714f0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fcc1ef8dd00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcc1ef1c280>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fcc1ef8dd00>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fcc1ef8de20>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcc1ef1c550>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fcc1ef8de20>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fcc1ef1e1c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcc1ef1c700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fcc1ef1e1c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fcc1ef1e2b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7fcc1ef1c790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fcc1ef1e2b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7fcc1f00ea00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7fcc1df445e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 25, in order_create
+    list_items.append(OrderItem(order=cart, product=item.product,
+    │          │      │               │             │    └ <django.db.models.fields.related_descriptors.ForwardManyToOneDescriptor object at 0x7fcc1ea8bdc0>
+    │          │      │               │             └ <CartItem: 40>
+    │          │      │               └ <cart.cart.Cart object at 0x7fcc1c322100>
+    │          │      └ <class 'orders.models.OrderItem'>
+    │          └ <method 'append' of 'list' objects>
+    └ []
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/base.py", line 483, in __init__
+    _setattr(self, field.name, rel_obj)
+    │        │     │     │     └ <cart.cart.Cart object at 0x7fcc1c322100>
+    │        │     │     └ 'order'
+    │        │     └ <django.db.models.fields.related.ForeignKey: order>
+    │        └ <OrderItem: None>
+    └ <built-in function setattr>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/fields/related_descriptors.py", line 206, in __set__
+    raise ValueError(
+
+ValueError: Cannot assign "<cart.cart.Cart object at 0x7fcc1c322100>": "OrderItem.order" must be a "Order" instance.
+2020-11-10T07:45:11.551773+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (20960), thread 'Thread-1' (139696604059392):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f0da8c4d4c0>
+    └ <Thread(Thread-1, started daemon 139696604059392)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f0da8c4d1f0>
+    └ <Thread(Thread-1, started daemon 139696604059392)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 139696604059392)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 139696604059392)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f0da6964610>>
+    └ <Thread(Thread-1, started daemon 139696604059392)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 33806)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f0da7af8a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f0da6964610>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f0da6964610>
+    │    │                   │        └ ('127.0.0.1', 33806)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f0da6964610>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f0da740b0d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f0da6812190>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f0da740b160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f0da6812190>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f0da7409550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f0da6964610>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f0da6812190>
+    │       └ <function BaseHandler.run at 0x7f0da74861f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f0da68125b0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f0da7486550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f0da68125b0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f0da68125b0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f0da6964580>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f0da68125b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f0da68125b0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f0da7a9aa00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f0da6964580>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f0da74bd160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f0da7a9aa00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0da79a8280>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f0da7a9aa00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f0da6927d90>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0da79a8310>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f0da6927d90>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f0da7a19f40>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0da79a83a0>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f0da7a19f40>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f0da7a19d30>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0da79a8430>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f0da7a19d30>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f0da7a19be0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0da79a84c0>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f0da7a19be0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f0da79aa130>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0da79a8670>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f0da79aa130>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f0da79aa1c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f0da79a8700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f0da79aa1c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f0da79aa2b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f0da79a8790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f0da79aa2b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f0da7a9aa00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f0da69ed5e0>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 25, in order_create
+    list_items.append(OrderItem(order=cart.cart, product=item.product,
+    │          │      │               │    │             │    └ <django.db.models.fields.related_descriptors.ForwardManyToOneDescriptor object at 0x7f0da7517dc0>
+    │          │      │               │    │             └ <CartItem: 40>
+    │          │      │               │    └ <Cart_bd: Cart 2>
+    │          │      │               └ <cart.cart.Cart object at 0x7f0da6820490>
+    │          │      └ <class 'orders.models.OrderItem'>
+    │          └ <method 'append' of 'list' objects>
+    └ []
+
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/base.py", line 483, in __init__
+    _setattr(self, field.name, rel_obj)
+    │        │     │     │     └ <Cart_bd: Cart 2>
+    │        │     │     └ 'order'
+    │        │     └ <django.db.models.fields.related.ForeignKey: order>
+    │        └ <OrderItem: None>
+    └ <built-in function setattr>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/db/models/fields/related_descriptors.py", line 206, in __set__
+    raise ValueError(
+
+ValueError: Cannot assign "<Cart_bd: Cart 2>": "OrderItem.order" must be a "Order" instance.
+2020-11-10T10:02:49.550736+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (29105), thread 'Thread-1' (140618629682944):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7fe455c754c0>
+    └ <Thread(Thread-1, started daemon 140618629682944)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7fe455c751f0>
+    └ <Thread(Thread-1, started daemon 140618629682944)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 140618629682944)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 140618629682944)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7fe453901d00>>
+    └ <Thread(Thread-1, started daemon 140618629682944)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 34970)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7fe454b20a60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fe453901d00>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7fe453901d00>
+    │    │                   │        └ ('127.0.0.1', 34970)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fe453901d00>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7fe4544330d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fe4538181f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7fe454433160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fe4538181f0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7fe454431550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7fe453901d00>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fe4538181f0>
+    │       └ <function BaseHandler.run at 0x7fe4544ae1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fe453818b80>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7fe4544ae550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7fe453818b80>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7fe453818b80>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fe4539efdc0>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fe453818b80>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7fe453818b80>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fe454ac2a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fe4539efdc0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7fe4544e5160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fe454ac2a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7fe45390dee0>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fe454ac2a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7fe453909130>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fe4549cdee0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7fe453909130>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fe4539090a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fe4549cdf70>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fe4539090a0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7fe453909040>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fe4549cde50>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7fe453909040>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fe4539093a0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fe4549d0040>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fe4539093a0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fe453909340>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fe4549d0310>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fe453909340>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fe4549d21c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fe4549d0700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fe4549d21c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fe4549d22b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7fe4549d0790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fe4549d22b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7fe454ac2a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7fe4539fd550>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 25, in order_create
+    f'< title > Заказ № {order.i} < / title >',
+
+AttributeError: 'Order' object has no attribute 'i'
+2020-11-10T10:03:26.637088+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (29173), thread 'Thread-1' (140508872275712):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7fcac7ba34c0>
+    └ <Thread(Thread-1, started daemon 140508872275712)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7fcac7ba31f0>
+    └ <Thread(Thread-1, started daemon 140508872275712)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 140508872275712)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 140508872275712)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7fcac5872dc0>>
+    └ <Thread(Thread-1, started daemon 140508872275712)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 34976)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7fcac6a4ea60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fcac5872dc0>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7fcac5872dc0>
+    │    │                   │        └ ('127.0.0.1', 34976)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7fcac5872dc0>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7fcac63610d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fcac579f880>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 169, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7fcac6361160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fcac579f880>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7fcac635f550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7fcac5872dc0>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7fcac579f880>
+    │       └ <function BaseHandler.run at 0x7fcac63dc1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fcac579faf0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7fcac63dc550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7fcac579faf0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7fcac579faf0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fcac5928c70>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7fcac579faf0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7fcac579faf0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fcac69f0a00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7fcac5928c70>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7fcac6413160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fcac69f0a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcac58211f0>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7fcac69f0a00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7fcac696fe80>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcac68fe310>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7fcac696fe80>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fcac696ff40>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcac68fe3a0>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7fcac696ff40>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7fcac696fd30>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcac68fe430>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7fcac696fd30>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fcac696fbe0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcac68fe4c0>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7fcac696fbe0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fcac6900130>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcac68fe670>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7fcac6900130>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fcac69001c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7fcac68fe700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7fcac69001c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fcac69002b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7fcac68fe790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7fcac69002b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7fcac69f0a00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7fcac592a550>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 30, in order_create
+    html_list.append(f'<p> {item.product.name} -- {item.product.quantity} шт --{item.get_cost} руб </p>' )
+    │         └ <method 'append' of 'list' objects>
+    └ ['< title > Заказ № 5 < / title >', '<p> username admin</p>', '<p> delivery_address adminka</p>']
+
+AttributeError: 'Product' object has no attribute 'quantity'
+2020-11-10T10:26:16.130218+0000 ERROR An error has been caught in function '_get_response', process 'MainProcess' (31403), thread 'Thread-1' (139712890955520):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f11738b24c0>
+    └ <Thread(Thread-1, started daemon 139712890955520)>
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f11738b21f0>
+    └ <Thread(Thread-1, started daemon 139712890955520)>
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 139712890955520)>
+    │    │        │    └ (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    │        └ <Thread(Thread-1, started daemon 139712890955520)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x7f11715e0b20>>
+    └ <Thread(Thread-1, started daemon 139712890955520)>
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 35266)
+    │    │              └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <function BaseServer.finish_request at 0x7f117275da60>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f11715e0b20>
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x7f11715e0b20>
+    │    │                   │        └ ('127.0.0.1', 35266)
+    │    │                   └ <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('1...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x7f11715e0b20>
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x7f11720720d0>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f117146d1c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 171, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x7f1172072160>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f117146d1c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 194, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x7f1172070550>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x7f11715e0b20>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x7f117146d1c0>
+    │       └ <function BaseHandler.run at 0x7f11720ed1f0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f1171508eb0>
+  File "/usr/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x7f11720ed550>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x7f1171508eb0>
+    │    │        │           │    └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x7f1171508eb0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f11715e04c0>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x7f1171508eb0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 65, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x7f1171508eb0>>
+           │    │           └ {'SHELL': '/bin/bash', 'SESSION_MANAGER': 'local/HP-630:@/tmp/.ICE-unix/1452,unix/HP-630:/tmp/.ICE-unix/1452', 'QT_ACCESSIBIL...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f11726ffa00>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x7f11715e04c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 141, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function BaseHandler.get_response at 0x7f1172124160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f11726ffa00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/orders/create/'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x7f11715e5d30>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x7f11726ffa00>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x7f11715d46d0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f117260d040>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x7f11715d46d0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f11715d4790>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f117260d0d0>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x7f11715d4790>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.common.CommonMiddleware object at 0x7f11715cacd0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f117260d160>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x7f11715cacd0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f11715fcb50>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f117260d1f0>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x7f11715fcb50>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f11726651c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f117260d3a0>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x7f11726651c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f117260f1c0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x7f117260d700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x7f117260f1c0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f117260f2b0>
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/orders/create/'>
+               │           │    └ <function BaseHandler._get_response at 0x7f117260d790>
+               │           └ <django.middleware.clickjacking.XFrameOptionsMiddleware object at 0x7f117260f2b0>
+               └ None
+  File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/orders/create/'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x7f11726ffa00>>
+> File "/home/svyatoslav/svyatoslav_shop/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/orders/create/'>
+               └ <function order_create at 0x7f117163fe50>
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/views.py", line 29, in order_create
+    html_list.append(f"ИТОГО: {order.get_total_cost()} </body></html>")
+    │         └ <method 'append' of 'list' objects>
+    └ ['<!DOCTYPE html><html lang="en">', '<head><meta charset="UTF-8">', '<title> Заказ № 12 </title></head><body>', '<p> username...
+
+  File "/home/svyatoslav/svyatoslav_shop/orders/models.py", line 12, in get_total_cost
+    total_cost = sum(item.get_cost() for item in self.items.all())
+                                                 └ <Order: Order object (12)>
+
+AttributeError: 'Order' object has no attribute 'items'

@@ -1,10 +1,9 @@
 import pdfkit
-from cart.models import Cart_bd
+
 from svyatoslav_shop.celery import app
 
-
 @app.task
-def order_created():
-    pdfkit.from_url('http://127.0.0.1:8000/', 'example.pdf')
+def order_created(html_str, order_number):
+    pdfkit.from_string(html_str, f'orders/pdf_files/order_№{order_number}.pdf')
 
 

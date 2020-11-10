@@ -9,7 +9,7 @@ class Order(models.Model):
     delivery_address = models.CharField(max_length=200)
 
     def get_total_cost(self):
-        total_cost = sum(item.get_cost() for item in self.items.all())
+        total_cost = sum(item.get_cost() for item in self.item.all())
         return total_cost
 
 

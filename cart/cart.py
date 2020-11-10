@@ -23,6 +23,7 @@ class Cart(object):
 
         return self.cart_item
 
+
     def __len__(self):
 
         # Count all items in the cart.
@@ -51,4 +52,4 @@ class Cart(object):
         return self.cart.get_total_cost()
 
     def clear(self):
-        pass
+        self.cart_item.delete()
