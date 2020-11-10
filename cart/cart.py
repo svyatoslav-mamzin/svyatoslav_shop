@@ -1,10 +1,5 @@
-from decimal import Decimal
-from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
-from loguru import logger
-
 from cart.models import CartItem, Cart_bd
-from shop.models import Product
 
 
 class Cart(object):
@@ -22,7 +17,6 @@ class Cart(object):
     def get_items_cart(self):
 
         return self.cart_item
-
 
     def __len__(self):
 

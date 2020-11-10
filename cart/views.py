@@ -1,11 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
-from .models import CartItem, Cart_bd
+
 from loguru import logger
 
 logger.add("logs/cart_logs/log.log", format="{time} {level} {message}", level="ERROR",

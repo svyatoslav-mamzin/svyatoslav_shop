@@ -1,5 +1,5 @@
 
-def html_creater(username, order, cart):
+def html_creator(username, order, cart):
 
     html_list = ['<!DOCTYPE html><html lang="en">',
                  '<head><meta charset="UTF-8">',

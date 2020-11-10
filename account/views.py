@@ -52,7 +52,8 @@ def register(request):
             my_group = Group.objects.get(name=group_name)
             my_group.user_set.add(new_user)
             # Create the user profile
-            Profile.objects.create(user=new_user, delivery_address=user_address_form.cleaned_data.get('delivery_address'))
+            Profile.objects.create(user=new_user,
+                                   delivery_address=user_address_form.cleaned_data.get('delivery_address'))
             Cart_bd.objects.create(user=new_user)
             logger.info("Зарегистрирован новый пользователь!")
             return render(request,
